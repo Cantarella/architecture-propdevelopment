@@ -2,7 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: frontend-developer
-  namespace: dev
+  namespace: frontend
 rules:
   - apiGroups: [""]
     resources: ["pods", "configmaps"]
@@ -18,4 +18,4 @@ rules:
 
   - apiGroups: [""]
     resources: ["secrets", "services"]
-    verbs: []
+    verbs: ["none"]
