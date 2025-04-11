@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: admin-backend-api
+  name: admin-backend-app
   namespace: backend
   labels:
     role: backend-developer
@@ -29,6 +29,7 @@ metadata:
     role: backend-developer
 spec:
   selector:
+    app: admin-backend-app
     role: backend-developer
   ports:
     - port: 80

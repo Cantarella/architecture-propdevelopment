@@ -1,9 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: frontend-app
   namespace: frontend
   labels:
+    name: frontend-app
     role: frontend
 spec:
   replicas: 1
@@ -29,6 +30,7 @@ metadata:
     role: frontend
 spec:
   selector:
+    app: frontend-app
     role: frontend
   ports:
     - port: 80

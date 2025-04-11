@@ -29,6 +29,7 @@ metadata:
     role: backend-developer
 spec:
   selector:
+    app: backend-api
     role: backend-developer
   ports:
     - port: 80

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: admin-frontend
+  name: admin-frontend-app
   namespace: frontend
   labels:
     role: frontend-developer
@@ -29,6 +29,7 @@ metadata:
     role: frontend-developer
 spec:
   selector:
+    app: admin-frontend-app
     role: frontend-developer
   ports:
     - port: 80
