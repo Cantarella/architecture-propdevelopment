@@ -13,6 +13,7 @@ spec:
   template:
     metadata:
       labels:
+        app: admin-backend-app
         role: backend-developer
     spec:
       containers:
