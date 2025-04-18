@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-frontend-app
+  namespace: frontend
+  labels:
+    role: frontend-developer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: frontend-developer
+  template:
+    metadata:
+      labels:
+        app: admin-frontend-app
+        role: frontend-developer
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: admin-frontend
+  namespace: frontend
+  labels:
+    role: frontend-developer
+spec:
+  selector:
+    app: admin-frontend-app
+    role: frontend-developer
+  ports:
+    - port: 80

@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-admin-backend-from-admin-frontend
+  namespace: backend
+spec:
+  podSelector:
+    matchLabels:
+      app: admin-backend-app
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: frontend
+          podSelector:
+            matchLabels:
+              app: admin-frontend-app
+      ports:
+        - protocol: TCP
+          port: 3000
