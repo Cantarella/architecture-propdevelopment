@@ -6,7 +6,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: frontend
+      app: frontend-app
   policyTypes:
     - Egress
   egress:
@@ -16,7 +16,7 @@ spec:
               kubernetes.io/metadata.name: backend
           podSelector:
             matchLabels:
-              app: backend
+              app: backend-api
       ports:
         - protocol: TCP
           port: 3000
